@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="dao.Categorie" table="CATEGORIES" >
+
+	<id name="idCategorie" column="ID_CATEGORIE"  >
+		<generator class="native"></generator>
+	</id>
+	
+	<property name="titre" column="TITRE" ></property>
+	<property name="description" column="DESCRIPTION"></property>
+	<property name="dateAjout" column="DATE_AJOUT"></property>
+	
+	<set name="produits" table="CAT_PROD">
+		<key column="ID_CATEGORIE" ></key>
+		<many-to-many class="dao.Produit" column="ID_PRODUIT" > </many-to-many>
+	</set>
+	
+</class>
+ 
+  
+</hibernate-mapping>
